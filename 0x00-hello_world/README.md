@@ -1,0 +1,1 @@
+This directory contains Alx first week C's projects
