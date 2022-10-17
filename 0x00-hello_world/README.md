@@ -2,7 +2,7 @@ This directory contains Alx first week C's projects
 
 ## 0x00-hello-world C Task Code Explanations
 
-
+## Print functions in C
 ### Task 04 Puts.c
 
 ```c
@@ -43,5 +43,70 @@ int main(void)
 {
 	printf("with proper grammar, but the outcome is a piece of art,\n");
 	return (0);
+}
+```
+printf is also a function in the stdio library the prints out arrays of characters or strings to the standard output.
+
+## Data Types in C
+### 6-size
+
+#### input
+```c
+#include <stdio.h>
+
+/**
+ * main - Prints out the size of c datatypes
+ * Return: All good
+ */
+
+int main(void)
+{
+	printf("Size of a char: %li byte(s)\n", sizeof(char));
+	printf("Size of an int: %li byte(s)\n", sizeof(int));
+	printf("Size of a long int: %li byte(s)\n", sizeof(long int));
+	printf("Size of a long long int: %li byte(s)\n", sizeof(long long int));
+	printf("Size of a float: %li byte(s)\n", sizeof(float));
+	return (0);
+}
+```
+sizeof is a function used to get the size of arguments passed in bytes, so because the return data type for the sizeof is long int %li is used as a place holder which is a format code to display the result as part of the srings in double quotation inside the printf function
+
+#### Output
+```comandline
+Size of a char: 1 byte(s)
+Size of an int: 4 byte(s)
+Size of a long int: 8 byte(s)
+Size of a long long int: 8 byte(s)
+Size of a float: 4 byte(s)
+```
+
+Note!
+* You should get something like this as an output which are the sizes of the built in data types in C
+Size of a char: 1 byte(s) which is 8 bits i.e 2^8 which 256base 10 and if converted shouldn't be more than 8 1s and 0s, example is letter a with ASCII decimal 65, try converting the 65base10 to binary
+Size of an int: 4 byte(s) which is 32 bits i.e 2^32 which is roughly 4billion and that is shared between the positive and negative integers, thus the computer can only give output on data type int between -2^31 and +2^31
+Size of a long int: 8 byte(s) this is of size 8 bytes that is 64 bit, you can think of this as an enhanced int which you can use when you want to write a c program that will eventually with big whole numbers
+Size of a long long int: 8 byte(s) same as long int 
+Size of a float: 4 byte(s) float is a real number that is numbers that has decimal point example 12.234, the size of this data type is 32 bits or 4 bytes, so you might want to check other data type for real if you want to get more precision for your floating numbers
+
+### Other Data Types 
+>- double (enhanced floats)
+>- bool (booleans:True/False)
+>- string (arrays of chars)
+>- unsigned int 
+
+### 101-qoute
+```c
+#include <stdio.h>
+#include <unistd.h>
+/**
+ * main - main block
+ * Return: 1 do not go well
+ */
+int main(void)
+{
+
+	write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n",
+		  59);
+	return (1);
 }
 ```

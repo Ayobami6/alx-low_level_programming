@@ -8,11 +8,6 @@
 int main(void)
 {
 	printf("Size of a char: %li byte(s)\n", sizeof(char));
-	/*sizeof is a function used to get the size of arguments
-	passed in bytes, so because the return data type for the
-	sizeof is long int %li is used as a place holder to display
-	the result as part of the srings in double quotation
-	inside the printf function*/
 	printf("Size of an int: %li byte(s)\n", sizeof(int));
 	printf("Size of a long int: %li byte(s)\n", sizeof(long int));
 	printf("Size of a long long int: %li byte(s)\n", sizeof(long long int));
