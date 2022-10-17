@@ -3,7 +3,7 @@
 /**
  * main - Prints out strings
  * printf is a function that prints out strings to
- * stdou
+ * stdout
  * Return: All good
  */
 
