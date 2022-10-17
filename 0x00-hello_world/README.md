@@ -1,4 +1,5 @@
-This directory contains Alx first week C's projects
+# ALX Software Engineer First Trimester Course on C
+# Learning C With Peers
 
 ## 0x00-hello-world C Task Code Explanations
 
@@ -81,8 +82,8 @@ Size of a long long int: 8 byte(s)
 Size of a float: 4 byte(s)
 ```
 
-Note!
-* You should get something like this as an output which are the sizes of the built in data types in C
+#### Note!
+You should get something like my output as an output which are the sizes of the built in data types in C
 >- Size of a char: 1 byte(s) which is 8 bits i.e 2^8 which 256base 10 and if converted shouldn't be more than 8 1s and 0s, example is letter a with ASCII decimal 65, try converting the 65base10 to binary
 >- Size of an int: 4 byte(s) which is 32 bits i.e 2^32 which is roughly 4billion and that is shared between the positive and negative integers, thus the computer can only give output on data type int between -2^31 and +2^31
 >- Size of a long int: 8 byte(s) this is of size 8 bytes that is 64 bit, you can think of this as an enhanced int which you can use when you want to write a c program that will eventually with big whole numbers
