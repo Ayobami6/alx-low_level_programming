@@ -11,4 +11,4 @@ And therefore i seek the knowledge using my analytical thinking skills to break 
 
 
 ### C Made Simple
->- Alx Low level programming task 0[0x00-hello_world](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x00-hello_world)
+>- Alx Low level programming task 0 [0x00-hello_world](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x00-hello_world)
