@@ -96,6 +96,7 @@ b = 6;
 c = 8;
 ```
 ### Loops in C
+2-print_alphabet
 ```c
 #include <stdio.h>
 
@@ -126,6 +127,9 @@ For loop attributes
 * a counter or an updating variable
 * condition
 * increment
+
+Noticed anything from the putchar print function?....
+Well I do, the single quote, so because we are printing just 1 char at a time using the putchar function that only takes a char as an argument we use single quote, and in C chars are represented in single quote so the computer can understand this is just a single character not a string or an array of chars. 
 
 #### Output
 ```commandline
