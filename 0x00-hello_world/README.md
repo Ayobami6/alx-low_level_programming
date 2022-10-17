@@ -124,7 +124,7 @@ desciptor argument 2 that was passed sent the input string to stderr.
 ```commandline
 and that piece of art is useful" - Dora Korpar, 2015-10-19
 ```
-[image](pngs/img-1.png)
+![image](pngs/img-1.png)
 
 from the image did you notice anything before the base in bracket (base)?, if yes great, if great to 
 but there is something to actually notice which is the blue filled dot and circled cancel sign.
