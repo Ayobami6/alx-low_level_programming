@@ -6,7 +6,7 @@
  */
 int _isalpha(int c)
 {	
-	/*if c is between 64 and 91 ASCII decimals for chars or 96 abd 123 */
+	/*if c is between 64 and 91 ASCII decimals for chars or 96 and 123 */
 	if ((c > 64 && c < 91) || (c > 96 && c < 123))
 		return (1);
 	else
