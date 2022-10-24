@@ -11,6 +11,8 @@ And therefore i seek the knowledge using my analytical thinking skills to break 
 
 
 ### C Made Simple
->- Alx Low level programming task 00 [0x00-hello_world](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x00-hello_world)
->- Alx Low level programming task 01 [0x01-variable_if_else_while](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x01-variables_if_else_while)
->- Alx Low level programming task 02 [0x02-functions_nested_loops](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x02-functions_nested_loops)
+>- Alx Low level programming task 0x00 [0x00-hello_world](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x00-hello_world)
+>- Alx Low level programming task 0x01 [0x01-variable_if_else_while](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x01-variables_if_else_while)
+>- Alx Low level programming task 0x02 [0x02-functions_nested_loops](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x02-functions_nested_loops)
+>- Alx Low level programming task 0x03 [0x03-debugging](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x03-debugging)
+>- Alx Low level programming task 0x04 [0x04-more_functions_nested_loops](https://github.com/Ayobami6/alx-low_level_programming/tree/main/0x04-more_functions_nested_loops)
