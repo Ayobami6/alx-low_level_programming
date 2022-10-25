@@ -203,3 +203,72 @@ int main(void)
     printf("%s is the name\n", name);
 }
 ```
+
+### 101-keygen.c
+
+### 101-crackme disassemblying file 
+
+Using gdb to dissassemble main and the checksum function
+A checksum is a string of numbers and letters that act as a fingerprint for a file, against which later comparisons can be made to detect errors in the data.
+From the output, we can identify the call of checksum function from the call instruction, and then look for compare instruction 
+and get the value of what it been compared to for data integrity. So in this case, it was compared with 0xad4 which is the total value of the characters inputed in the program.
+The 0xad4 hex value converted to decimal is 2772, which is the total ascii characters in the  crackme program.
+
+```commandline
+ 0x00000000004005b6 <+25>:    mov    (%rax),%rax
+   0x00000000004005b9 <+28>:    mov    %rax,%rsi
+   0x00000000004005bc <+31>:    mov    $0x4006a4,%edi
+   0x00000000004005c1 <+36>:    mov    $0x0,%eax
+   0x00000000004005c6 <+41>:    call   0x400440 <printf@plt>
+   0x00000000004005cb <+46>:    mov    $0x1,%eax
+   0x00000000004005d0 <+51>:    jmp    0x400613 <main+118>
+   0x00000000004005d2 <+53>:    mov    -0x20(%rbp),%rax
+   0x00000000004005d6 <+57>:    add    $0x8,%rax
+   0x00000000004005da <+61>:    mov    (%rax),%rax
+   0x00000000004005dd <+64>:    mov    %rax,%rdi
+   0x00000000004005e0 <+67>:    call   0x400566 <checksum>
+   0x00000000004005e5 <+72>:    mov    %rax,-0x8(%rbp)
+   0x00000000004005e9 <+76>:    cmpq   $0xad4,-0x8(%rbp)   (Comparison address)
+   0x00000000004005f1 <+84>:    je     0x400604 <main+103>
+   0x00000000004005f3 <+86>:    mov    $0x4006b8,%edi
+   0x00000000004005f8 <+91>:    call   0x400430 <puts@plt>
+   0x00000000004005fd <+96>:    mov    $0x1,%eax
+   0x0000000000400602 <+101>:   jmp    0x400613 <main+118>
+   0x0000000000400604 <+103>:   mov    $0x4006c7,%edi
+   0x0000000000400609 <+108>:   call   0x400430 <puts@plt>
+   0x000000000040060e <+113>:   mov    $0x0,%eax
+   0x0000000000400613 <+118>:   leave  
+   0x0000000000400614 <+119>:   ret 
+```
+### Code generator
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+/**
+ * main - main body
+ * Return: All good
+*/
+
+int main(void)
+{
+	int myrand; /*varaible for the random number to be generated*/
+	int count;  /*counter variable to determine the iteration times*/
+	int total; /*this is the variable to hold the total number of character generated from disassemblying the checksum function*/
+
+	srand(time(NULL)); /*ensuring no repetition between runs*/
+	for (count = 0, total = 2772; total > 122; count++)
+	{
+		myrand = (rand() % 127); /*the remainder of rand() function result divided by the highest ascii decimal char is stored to myrand*/
+		printf("%c", myrand); /*myrand decimal number is printed as char*/
+		total -= myrand; /*myrand is subtracted from the total*/
+	}
+	printf("%c", total); /*when total is less or equal to 122, the decimal character is printed*/
+
+	return (0);
+}
+
+```
+[Check here for more info on reverse engineering and the task](https://sweetcode.io/dreaming-reverse-engineering/)
