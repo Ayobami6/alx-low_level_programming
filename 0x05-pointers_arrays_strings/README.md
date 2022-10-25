@@ -191,6 +191,7 @@ HI!
 ```
 ### Create your own string data type 
 
+
 ```c
 #include <stdio.h>
 
@@ -240,7 +241,7 @@ The 0xad4 hex value converted to decimal is 2772, which is the total ascii chara
    0x0000000000400613 <+118>:   leave  
    0x0000000000400614 <+119>:   ret 
 ```
-### Code generator
+### Password generator
 
 ```c
 #include <stdio.h>
@@ -272,3 +273,5 @@ int main(void)
 
 ```
 [Check here for more info on reverse engineering and the task](https://sweetcode.io/dreaming-reverse-engineering/)
+
+![ASCII-Table-wide](https://user-images.githubusercontent.com/91608325/197813414-5d6f108b-5b42-44c6-a06f-23b72c378447.svg)
