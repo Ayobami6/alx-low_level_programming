@@ -1,27 +1,26 @@
 #include <stdio.h>
 
-char *_strncpy(char *dest, char *src, int n);
+int _strcmp(char *s1, char *s2);
 
 int main(void)
 {
-    char *a;
+    int a;
     char b[50] = "hey";
     char c[] = "peace";
-    a = _strncpy(b, c, 1);
+    a = _strcmp(b, c);
 
-    printf("%s\n,", a);
+    printf("%i\n,", a);
 }
 
-char *_strncpy(char *dest, char *src, int n)
+int _strcmp(char *s1, char *s2)
 {
-    int j;
+    int i;
 
-    for (j = 0; j < n && src[j] != '\0'; j++)
+    for (i = 0; s1[i] != '\0' || s2[i] != '\0'; i++)
     {
-        dest[j] = src[j];
+        if (s1[i] != s2[i])
+            return (s1[i] - s2[2]);
+            
     }
-    for (; j < n; j++)
-        dest[j] = '\0';
-
-    return dest;
+    return (0);
 }
