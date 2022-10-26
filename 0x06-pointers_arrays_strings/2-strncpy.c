@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _strncat - copy one string to another
+ * _strncpy - copy one string to another
  * @dest: pointer arg 1
  * @src: pointer arg 2
  * @n: Size
