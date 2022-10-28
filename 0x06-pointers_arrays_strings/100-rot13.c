@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * rot13 - encode a string by rotating for 13char 
+ * rot13 - encode a string by rotating for 13char
  * @s: string arg
  * Return: encoded string
  */
@@ -9,8 +9,8 @@ char *rot13(char *s)
 {
 	int i, j;
 
-	char* l = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char* r13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *l = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *r13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
