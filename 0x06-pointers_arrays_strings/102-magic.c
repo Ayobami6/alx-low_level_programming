@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - main body
+ * Return: All good
+ */
+
 int main(void)
 {
 	int n;
