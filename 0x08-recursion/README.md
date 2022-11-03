@@ -41,5 +41,22 @@ Now, how does C does this!, simple but not that simple, remember the call stack,
 Therefore, here is how the above code works, if n = 4, the main function is called first on the stack which is technically the call stack 1 i.e call frame 1, inside the main, n is an arg passed to the function as user input to use as an argument for fact function which is 4, then the fact function is called on different frames until the base condition is met pending the final instruction in the main function which is to print the result of fact 4, so since fact function is a recursive function, `fact(4)` gets it frame which is frame 2 and does its work which is 4 * fact(3), fact funtion is called again on frame 3 taking 3 as its arg this time, which will return 3 * fact(2), and call again on frame 4 taking 2 as it arg, to return 2 * fact(1), now since the n is equal to 1 the terminate condition is true and the function calls and return 1, so since fact(1) returns 1, fact (2)  will be 2 * 1 which is 2, so fact(2) = 2, then back to fact(3), since fact(2) = 2 fact(3) will be 3* 2 = 6 and fact(4) will be 4 * fact(3), which 4 * 6 = 24.
 So after the call stack is done, the execution of the function is next, think of this as a LIFO queuing system process i.e last in first out stack queue, in which the later function is waiting for the earlier function to complete it function action and disappear. the most recent function gets executed first, then pass it result to the next recent, till its get back to back to main which is the first frame. 
 Most recent frame = active frame.
+This is an example of a non tail recursive function because it is not the last program instruction in the function definition, the last instruction is return. 
 
+
+Example of tail recursive function
+
+```c
+void _puts_recursion(char *s)
+{
+	if (*s == '\0')
+	{
+		_putchar('\n');
+		return;
+	}
+	_putchar(*s);
+	_puts_recursion(++s);
+}
+```
+Here the recursive case is the last program instruction, so this wont actually behave in the same manner as the non tail recursive function.
 
