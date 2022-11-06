@@ -31,7 +31,7 @@ int main(int argc, string argv[])
     // i.e if arg count is equal to 2 print hello and the second arg provided by the user in the command line
     if (argc == 2)
     {
-        printf("hello, %s %d\n", argv[1], argc);
+        printf("hello, %s count is : %d\n", argv[1], argc);
     }
 
     // else just print hello, world
