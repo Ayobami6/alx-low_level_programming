@@ -17,20 +17,22 @@ int main(int argc, char *argv[])
 	int num;
 
 	total = 0;
-	j = 0;
 	if (argc > 1)
 	{
 		for (i = 1; argv[i]; i++)
 		{
-			if (argv[i][j] >= '0' && argv[i][j] <= '9')
+			for (j = 0; argv[i][j] != '\0'; j++)
 			{
-				num = atoi(argv[i]);
-				total += num;
-			}
-			else
-			{
-				printf("Error\n");
-				return (1);
+				if (argv[i][j] >= '0' && argv[i][j] <= '9')
+				{
+					num = atoi(argv[i]);
+					total += num;
+				}
+				else
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
 		}
 	}
