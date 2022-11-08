@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 /**
  * print_grid - prints a grid of integers
  * @grid: the address of the two dimensional grid
@@ -27,7 +26,7 @@ void print_grid(int **grid, int width, int height)
         }
         printf("\n");
         h++;
-    }   
+    }
 }
 
 /**
@@ -61,29 +60,30 @@ int main(void)
 
 int **alloc_grid(int width, int height)
 {
-	int **grid; // initializing double pointer for the 2d array
-	int i, j;
+    int **grid; // initializing double pointer for the 2d array
+    int i, j;
 
-	if (width + height < 2 || width < 1 || height < 1) // if width and height is 0
-		return (NULL);
+    if (width + height < 2 || width < 1 || height < 1) // if width and height is 0
+        return (NULL);
 
-	grid = malloc(height * 8); // grid array meomory allocaion
-	if (grid == NULL)  // if no memory is allocated to grid return Null
-		return (NULL);
+    grid = malloc(height * 8); // grid array meomory allocaion
+    if (grid == NULL)          // if no memory is allocated to grid return Null
+        return (NULL);
 
-	for (i = 0; i < height; i++) // allocating memory for the height which is the row
-	{
-		grid[i] = malloc(width * 8);
-		if (grid[i] == NULL)
-		{
-			for (i--; i >= 0; i--)
-				free(grid[i]);
-			free(grid);
-			return (NULL);
-		}
-		for (j = 0; j < width; j++)
-			grid[i][j] = 0;
-	}
+    for (i = 0; i < height; i++) // allocating memory for the height which is the row
+    {
+        grid[i] = malloc(width * 4);
+        if (grid[i] == NULL) /* if any memory allocation fails for the height free the previously
+         allocated and return NUll */
+        {
+            for (i--; i >= 0; i--)
+                free(grid[i]);
+            free(grid);
+            return (NULL);
+        }
+        for (j = 0; j < width; j++) /* Assigning 0 to row i and column j*/
+            grid[i][j] = 0;
+    }
 
-	return (grid);
+    return (grid); /*Return the grid double pointer*/
 }

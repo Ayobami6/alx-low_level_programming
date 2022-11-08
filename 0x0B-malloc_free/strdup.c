@@ -18,12 +18,12 @@ char *_strdup(char *str)
     if (str == NULL)
         return NULL;
 
-    a = malloc(strlen(str) + 1);
+    a = malloc(strlen(str) + 1); // allocating memory to pointer a
 
-    if (a == NULL)
+    if (a == NULL) // error check
         return NULL;
 
-    for (int i = 0; i < strlen(str) + 1; i++)
+    for (int i = 0; i < strlen(str) + 1; i++) // iterating over the str till the null char and copying to a memory
     {
         a[i] = str[i];
     }
