@@ -8,6 +8,7 @@
  * @n: bytes to include of s2
  * Return: NULL if fail, else pointer to malloc memory
  */
+int _strlen(char *s);
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
