@@ -8,6 +8,8 @@
  * @owner: char string owner
  * Return: pointer to new dog
  */
+int _strlen(char *s);
+char *_strdup(char *str);
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
@@ -18,10 +20,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_dog = malloc(sizeof(dog_t));
 	if (new_dog == NULL)
 		return (NULL);
-	for (i = 0; name[i] != '\0'; i++)
-		;
-	for (j = 0; owner[j] != '\0'; j++)
-		;
+	i = _strlen(name);
+	j = _strlen(owner);
 	n = malloc((i * sizeof(char)) + 1);
 
 	if (n == NULL)
@@ -37,18 +37,58 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(n);
 		return (NULL);
 	}
-	for (k = 0; k <= i; k++)
-	{
-		n[k] = name[k];
-	}
-	for (k = 0; k <= j; k++)
-	{
-		o[k] = owner[k];
-	}
-
+	n = _strdup(name);
+	o = _strdup(owner);
 	new_dog->name = n;
 	new_dog->age = age;
 	new_dog->owner = o;
 
 	return (new_dog);
+}
+
+/**
+ * _strlen_recursion - return length of a string
+ * @s: string
+ * Return: a, variable for the string length
+ */
+
+int _strlen(char *s)
+{
+	int a;
+
+	a = 0;
+	if (*s == '\0')
+		return (0);
+
+	a = 1 + _strlen(s + 1);
+
+	return (a);
+}
+
+/**
+ * _strdup - Duplicate a string using malloc
+ * @str: string to duplicate
+ * Return: Pointer to a the new duped string
+ */
+
+char *_strdup(char *str)
+{
+	char *a;
+	int i, j;
+
+	if (str == NULL)
+		return (NULL);
+
+	for (i = 0; str[i] != '\0'; i++)
+		;
+
+	a = malloc(i * sizeof(char) + 1);
+	if (a == NULL)
+		return (NULL);
+
+	for (j = 0; j < i; j++)
+		a[j] = str[j];
+	a[j] = '\0';
+
+	return (a);
 }
