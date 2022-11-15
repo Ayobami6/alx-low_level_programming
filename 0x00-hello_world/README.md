@@ -21,13 +21,14 @@ int main(void)
     return (0);
 }
 ```
-The header file hash include stdio.h is required to to call the standard input and output function puts
-mostly required for all c programs. The strings encapsulated inside the first comment block 
-is used to describe the main function which includes what it does and what its returns as part of betty code style requirements.
-The int in the function definition is the data type of the funtion and the main is by convention the main body of any program, think of it as a container for your c algorithms.
-The void parameter passed literally means nothing that is null, meaning the algorithms inside the main 
-doesn't actually return anything as a value rather it just print out the result to the stdout.
-returns 0 means all went well and nothing was returned.
+The header file `#include stdio.h` is required to to call the standard input and output function `puts`
+mostly required for all c programs. 
+
+The strings encapsulated inside the first comment block ```c/** */``` is used to describe the main function which includes what it does and what its returns as part of betty code style requirements.
+
+The `int` in the function definition is the datatype of the function and the `main` is by convention the main body of any program, think of it as a container for your c algorithms.
+
+The `void` parameter passed literally means nothing that is null, meaning the algorithms inside the main function will not accept any arguments. When the program returns `0` this means all went well and nothing was returned.
 
 ### 5-printf
 ```c
@@ -46,7 +47,7 @@ int main(void)
 	return (0);
 }
 ```
-printf is also a function in the stdio library the prints out arrays of characters or strings to the standard output.
+printf is also a function in the `stdio` library that prints out arrays of characters or strings to the standard output.
 
 ## Data Types in C
 ### 6-size
@@ -70,8 +71,9 @@ int main(void)
 	return (0);
 }
 ```
-sizeof is a function used to get the size of arguments passed in bytes, so because the return data type for the sizeof is long int %li is used as a place holder which is a format code to display the result as part of the srings in double quotation inside the printf function
-Note! you can use %d for the format code too
+`sizeof()` is a function used to get the size of arguments passed in bytes, so because the return datatype is a long int, `%li` is used as a place holder which is a format code to display the result as part of the strings in double quotation inside the printf function
+
+>Note! you can use `%d` for the format code too.
 
 #### Output
 ```comandline
@@ -87,7 +89,7 @@ You should get something like my output as an output which are the sizes of the 
 >- Size of a char: 1 byte(s) which is 8 bits i.e 2^8 which 256base 10 and if converted shouldn't be more than 8 1s and 0s, example is letter A with ASCII decimal 65, try converting the 65base10 to binary
 >- Size of an int: 4 byte(s) which is 32 bits i.e 2^32 which is roughly 4billion and that is shared between the positive and negative integers, thus the computer can only give output on data type int between -2^31 and +2^31
 >- Size of a long int: 8 byte(s) this is of size 8 bytes that is 64 bit, you can think of this as an enhanced int which you can use when you want to write a c program that will eventually with big whole numbers
->- Size of a long long int: 8 byte(s) same as long int 
+>- Size of a long long int: 8 byte(s) same as long int
 >- Size of a float: 4 byte(s) float is a real number that is numbers that has decimal point example 12.234, the size of this data type is 32 bits or 4 bytes, so you might want to check other data type for real if you want to get more precision for your floating numbers
 
 ### Other Data Types 
@@ -112,13 +114,16 @@ int main(void)
 	return (1);
 }
 ```
-write() function is a stdio and stderr function to print out strings to stderr or stdout, it takes 3 arguments
+`write()` - function is a `stdio` and `stderr` function to print out strings to stderr or stdout, it takes 3 arguments
 file descriptor, the strings or arrays of characters and the total number of character in bytes,
-since one char is 1 byte, the nbytes here is 59, if you count the chars inside the double
-quote you should have 59.
+since one char is 1 byte, the nbytes here is 59.
+
+If you count the chars inside the double quote you should have 59.
+
 You can get the nbytes programmatically by calling the strlen on the double quoted string
 from string.h library by #including its header file.
-Though its returns 1 which means all doesn't doesn't go well, the input was printed because of the file
+
+Though it returns 1 which means it did not go well, the input was printed because of the file
 desciptor argument 2 that was passed sent the input string to stderr.
 
 ### Output
@@ -127,6 +132,8 @@ and that piece of art is useful" - Dora Korpar, 2015-10-19
 ```
 ![image](pngs/img-1.png)
 
-from the image did you notice anything before the base in bracket (base)?, if yes great, if great to 
-but there is something to actually notice which is the blue filled dot and circled cancel sign.
-The blue means all goes well and the input gets printed to stdout while the cancel means although all my progams ran without any actual errors but all didn't go well because my program returns 1 as it return type which signifies good error/or acceptable error and my strings is sent to the stderr.
+From the image did you notice anything before the base in bracket (base)?, if yes great, if not great too.
+
+But there is something to actually notice which is the blue filled dot and circled cancel sign.
+
+The blue means all goes well and the input gets printed to stdout while the cancel means although all the progams ran without any actual errors but all did not go well because the program returns 1 as its return type which signifies good error/or acceptable error and my strings are sent to the stderr.
