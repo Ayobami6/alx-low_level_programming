@@ -1,6 +1,6 @@
-#ifndef LIST_H
-#define LIST_H
-#include <stdio.h>
+#ifndef LISTS_H
+#define LISTS_H
+#include <stdlib.h>
 
 /**
  * struct listint_s - linked list data structures
