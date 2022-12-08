@@ -29,8 +29,12 @@ void print_alphabet_x10(void)
 }
 ```
 So lets talk about the nested loops with this task, so remember loops are ways in programming to repeat task until we meet our stop condition otherwise it will keep running forever.
+
 From our code above we make use of the while loop twice, and here we don't just use it twice, we use it inside of another while loop, so we have a loop inside a loop which is loop nesting.
-Now, how does this work?, well, pretty straight forward the first loop is the outer loop and the 2nd or the nested (one inside the first loop) is the inner loop, thus it works as follows the outer loop is initialized and it reads lines till it gets to the nested loop, when the nested is touched/initialed, it will complete its iteration process then move on to the outer loop to complete its iteration 1, so think about it like this if the outer has to run 4 iterations and the inner has to run 10, the for every 1 iteration of the outer inner will complete its iteration cycle to be able to move on to complete iteration of the outer loop, so now if we are to calculate the total number of iterations, what do you think the total will be?, waiting....., its 40 iterations if thats what you got you correct, meaning the inner has to run or do something 10 times in 4 places.
+
+Now, how does this work?, well, pretty straight forward the first loop is the outer loop and the 2nd or the nested (one inside the first loop) is the inner loop, thus it works as follows the outer loop is initialized and it reads lines till it gets to the nested loop.
+
+When the nested loop is touched/initialed, it will complete its iteration process then move on to the outer loop to complete its iteration 1, so think about it like this if the outer has to run 4 iterations and the inner has to run 10, the for every 1 iteration of the outer inner will complete its iteration cycle to be able to move on to complete iteration of the outer loop, so now if we are to calculate the total number of iterations, what do you think the total will be?, waiting....., its 40 iterations if thats what you got you correct, meaning the inner has to run or do something 10 times in 4 places.
 
 ```txt
 Idea:Print all the small letter alphabets on one line 10 times
