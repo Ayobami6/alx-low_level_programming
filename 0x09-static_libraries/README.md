@@ -3,3 +3,5 @@
 ## Learning C With Peers
 
 ## Static Libraries
+
+Static libraries are
