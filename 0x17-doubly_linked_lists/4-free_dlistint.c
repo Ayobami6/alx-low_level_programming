@@ -1,8 +1,8 @@
 #include "lists.h"
 
 /**
- * free_dlistint - free a `dlistint_t` doubly linked list
- * @head: head of LL
+ * free_dlistint - free a dll
+ * @head: head of dll
  */
 void free_dlistint(dlistint_t *head)
 {
@@ -11,12 +11,13 @@ void free_dlistint(dlistint_t *head)
 	if (head == NULL)
 		return;
 
-	while (head->prev)
-		head = head->prev;
-	while (head)
+	tmp = head;
+	while (tmp->prev)
+		tmp = tmp->prev;
+	while (tmp)
 	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
+		hold = tmp;
+		tmp = tmp->next;
+		free(hold);
 	}
 }
