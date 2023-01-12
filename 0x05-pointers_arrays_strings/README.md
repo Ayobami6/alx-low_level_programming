@@ -19,15 +19,24 @@ int main(void)
 // Pointers is a variable that stores the address or location in memory of some values (using & operator)
 // * and variable to store a pointer number
 ```
+
 Alright lets use this to talk about pointers before moving forward to the tasks,
-Pointers in a simple sense is a variable that stores the address of a value in computer memory 'RAM', to store the address we need 
+
+A pointer in a simple sense is a variable that stores the address of a value in computer memory 'RAM', to store the address we need 
 to get the address using the ampersand operator & which is address of operator, the pointer variable is declared using * and name of the variable after the data type.
+
 The address of value output is always in hexadecimal i.e 0x02ab457f of sort, hexadecimals are numbers in base 16 unlike decimals in base 10, it ranges from 0 - F, i.e 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F which is basically 0 through 15. The highest count for hex is FF which is 255 in decimal and 11111111 in binary.
+
 Now lets use the above code to explain pointers and deferencing.
-inside the main function we declared the two variables n and p in the static, though pointer can also be stored on the heap, buts lets not go there now, we will talk about it later.
-n is a normal variable storing the value 50 and p with the asterick before which makes a pointer variable stores the address of n in memory which was obtained using ampersand operator. Think of it like n is a box on a table that has something in it and that something is a value or in this case an int value of 50, so the content of the box is an int value 50 and the location is on the table, thus from this where do you think the box 'n' is located? in lets say a room..... answer is on the table which is the address, and the table can only be stored inside a pointer if you intend to use it, So the room is the RAM and the table is the byte(s) space address in the memory and this address is stored in a pointer.
+
+Inside the main function we declared the two variables `n` and `p` in the static, though pointer can also be stored on the heap, buts lets not go there now, we will talk about it later.
+
+`n` is a normal variable storing the value 50 and `p` with the asterick (*) before which makes a pointer variable stores the address of `n` in memory which was obtained using ampersand operator. Think of it like `n` is a box on a table that has something in it and that something is a value or in this case an `int` value of 50, so the content of the box is an `int` value 50 and the location is on the table, thus from this where do you think the box 'n' is located? in lets say a room..... answer is on the table which is the address, and the table can only be stored inside a pointer if you intend to use it, So the room is the RAM and the table is the byte(s) space address in the memory and this address is stored in a pointer.
+
 Moreso, pointers points to an address.
+
 To print out the pointer with the print function we use the %p as the format code in qoute, then pass the pointer variable as the second or last argument without the asterick this time or every other time when want to just get the address after the initial declaration. 
+
 To get the content in the address the pointer variable is storing we use the deferencing operator which is adding * to the pointer variable, which means go to that address you are storing and get me whatever is inside, so if table was the address again go to the table and grap whats there, that is the box. 
 
 ### Output

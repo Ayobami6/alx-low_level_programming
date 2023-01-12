@@ -3,16 +3,52 @@
 ## Learning C With Peers
 
 ### Dynamic Memory Allocation 
-Dynamic memory allocation is a concept in C that allows us to dynamically allocate memory at runtime. Dynamically allocated memory usually come from the pool of memory called Heap. Up to this point we've been working on memory from the stack, which are memory created when we declare/initialize a variable or call functions or arrays. 
+Dynamic memory allocation is a concept in C that allows us to allocate memory at runtime. Dynamically allocated memory usually come from the section of memory called Heap. 
+
+Dynamic memory allocation in C is a procedure in which the size of a given datat structure can be changed during runtime.
+
+C provides 4 functions to facilitate dynamic memory allocation under the `<stdlib.h>` header file in C programming. They are;
+
+- malloc() --> (memory allocation) A method used to alocate single large blocks of memory with specified size returning a pointer of type void that can be casted to a pointer of any form. Memory is initialized with a default garbage value.
+
+- calloc() --> (contiguous allocation) Almost similar to malloc in dynamic memory allocation other than it initializes each block of memory with a defalut value '0' and has two parameters or arguments to compare to malloc(). Since we will not be focussing on calloc here is an example.
+
+Example
+```c
+element = (cast-type)calloc(number, element-size);
+```
+
+`number`, is the number of elements and element-size is the size of each element.
+
+- free() --> This is a method used to dynamically deallocate memory that was allocated by `malloc` and `calloc`. It is often used when dynamic memory allocation is used and helps in freeing memory in turn reducing memory waste.
+
+- `realloc()` - This method is used to reassign new blocks of memory to previouly assigned memory. re-allocation of memory maintains the already present values and a new blocks will be initialized with default garbage values. 
+
+Example
+```c
+element = realloc(variable-name, new-memory-size);
+```
+where `variable-name` is realoocated with a new size `new-memory-size`.
+
+Up to this point we've been working on memory from the stack, which are memory created when we declare/initialize a variable or call functions or arrays. 
+
+> The `stack` stores local variables such as those from functions (local variables) as the `heap` stores dynamic memory allocated by the user (global variables). The heap memory is used by the entire program itself while the stack memory is used only by one thread of execution. The stack focuses on static memory allocation while the heap works on global memory allocation.
+
 Check explantions on recursion to learn more about stack and memory.
 
 ### How do we dynamically allocate memory in C 
+
 To allocate memory dynamically in C is pretty straight forward with the use of `malloc and free` functions and pointer variables.
 
->- `malloc`: This is just as it sounds memory allocate, it is a function in C from `stdlib` used to allocate memory at runtime to pointer variable, takes an argument of the number of bytes for the memory you want the computer to get for you. 
->- `free`: Does the opposite of malloc, frees the chunk of memory malloc has given you so as to avoid running out memory which might lead to stack overflow problem. 
+>- `malloc()`: It is just as it sounds memory allocate, it is a function in C from `stdlib` used to allocate memory at runtime to pointer variable, takes an argument of the number of bytes for the memory you want the computer to get for you. 
+
+>- `free()`: Does the opposite of malloc, frees the chunk of memory malloc has given you so as to avoid running out memory which might lead to stack overflow problem. 
+
 This is the kind of the idea behind you having really really slow program or software freezing, when the program or software keep asking for memory using malloc without actually freeing it, the computer might actually end up using all memory and the program/software will start getting slow, lagging or freezing because there isn't any memory left to use when all the one's used are not freed. 
-So one of the reasons computers might be really really slow sometimes is becasue it calling too much malloc without freeing it. 
+
+When used incorrectly the operating system might prevent the program from executing entirely.
+
+So one of the reasons computers might be extremely slow sometimes is becasue it calling too much malloc without freeing it. 
 
 ### Example 
 
@@ -37,14 +73,18 @@ int main(void)
 }
 ```
 From the code above, we basically put all the theory definition of dynamically allocated memory into code practice.
+
 Inside the main function the x pointer varaible is declared and intiallize taking the address of the dynamic memory on the heap as it's value, the malloc get us a chunk of memory of 4 bytes which is the size of int, in three places, picture it as 1 x 3 grid, grid 1 having size of 4 bytes and so forth. The if statement is just an error check, that is, if something goes wrong and the computer was unable to allocate the memory to x just quit and return not sucessfull. Next is just assigning the integer value to the created grid on the heap.
+
 However, there's something missing in this code, I don't know what it is yet, you wanna try?....
+
 Well, if not lets go on, becasue i called malloc which has to do with dynamic memory, and i want to be sure nothing is wrong my program in terms of memory, there is a tool call `valgrind` to help debug memory bugs in your progams.
 So, because i want to be well assured that i don't have any memory issue with my program, let's use valgrind mem test on our program execuatble. 
 
 ### Valgring Output_1
+
 ```commandline
-(base) ayo@hp-HP-Pavilion-g6-Notebook-PC:~/Desktop/Study/Practice$ valgrind ./memory 
+(base) $ valgrind ./memory 
 ==16770== Memcheck, a memory error detector
 ==16770== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
 ==16770== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
@@ -66,10 +106,13 @@ So, because i want to be well assured that i don't have any memory issue with my
 ==16770== For lists of detected and suppressed errors, rerun with: -s
 ==16770== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
-After running the valgrind, even though i didn't get memory errors or many complicated issues about my program in terms of memory, got some information from my heap summary, that i allocated 12 bytes of memory on the heap in 1 block, which is 3 * 4 args i passed into malloc in my program, and then 1 useful insight 1 allocation and 0 frees, Voila!, that's it, i didn't free the memory i allocated, thats why i get the feeling that i'm kinda missing something in my program, now I know whats wrong and what to do fix it. 
-However, not freeing the alloc memory might not actually be significant for this kind of program, but by convention it is important to free up the memory dynamically allocated so you'll get the feeling when you are writing more complex programs and calling lots of malloc.
 
-### Fix mem bug 
+After running the valgrind, even though I didn't get memory errors or many complicated issues about my program in terms of memory, got some information from my heap summary, that I allocated 12 bytes of memory on the heap in 1 block, which is 3 * 4 args I passed into malloc in my program, and then 1 useful insight 1 allocation and 0 frees, Voila!, that's it, I did not free the memory I allocated, thats why I get the feeling that i'm kinda missing something in my program, now I know whats wrong and what to do fix it. 
+
+However, not freeing the alloc memory might not actually be significant for this kind of program, but by convention it is important to free up the memory dynamically allocated so you'll get the feeling when you are writing more complex programs and calling lots of malloc. It is therefore important to learn how to free memory for thr future.
+
+### Fix memory bug 
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -86,8 +129,10 @@ int main(void)
 
     x[2] = 67;
 
+    //Added free function to free memory x
     free(x);
 }
+
 ```
 ### Valgrind Output_2
 ```commandline
@@ -107,7 +152,7 @@ int main(void)
 ==18943== For lists of detected and suppressed errors, rerun with: -s
 ==18943== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
-Better now all memory freed, no leaks.
+Better, now all memory has been freed. No more leaks.
 
 
 ### strduplicate function
