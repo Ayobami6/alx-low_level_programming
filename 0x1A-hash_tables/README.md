@@ -46,4 +46,117 @@ unsigned int hash_func(string key){
 	return index;
 }
 
+int main(void)
+{
+	// testing our hash function
+	int key = 0;
+	key = hash_func("Ayo");
+	printf(" key for Ayo is :%d\n", key);
+	return 0;
+}
+```
+## Output
+```bash
+ key for Ayo is :2
+```
+
+hash create function
+
+```c
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// The hash_node for the linked list that will be inserted into the arrays of
+// linked list
+typedef struct hash_node_p{
+	string key;
+	string value;
+	struct hash_node_p *next;
+}hash_node_t;
+
+/*Arrays of linked list struct
+*/
+typedef struct hash_ll_array_t{
+	hash_node_t **array ;// array of the linked list
+} hash_ll_array_s;
+
+
+hash_ll_array_s *hash_create(void){
+	hash_ll_array_s *hashtable = malloc(sizeof(hash_ll_array_s)); // creating mem for the arrays of ll
+	if (hashtable == NULL)
+		return (NULL);
+	hashtable->array = malloc(sizeof(hash_node_t *) * TAB_SIZE);  // creating mem for each linked list in the array
+
+	//  now lets make all nodes to null to avoid garbage values 
+	for (int i = 0; i < TAB_SIZE; i++){
+		hashtable->array[i] = NULL;
+	}
+	return hashtable;
+}
+
+```
+
+function to set the key value pair
+
+```c
+hash_node_t *key_value_set(string key, string value){
+	hash_node_t *node = malloc(sizeof(hash_node_t));
+	if (node == NULL)
+		return (NULL);
+
+	node->key = key;
+	node->value = value;
+
+	node->next = NULL;
+	return node;
+}
+```
+map data function
+
+```c
+hash_node_t *key_value_set(string key, string value){
+	hash_node_t *node = malloc(sizeof(hash_node_t));
+	if (node == NULL)
+		return (NULL);
+	// node->key = malloc(strlen(key) + 1);
+	// node->value = malloc(strlen(value) + 1);
+
+	node->key = key;
+	node->value = value;
+
+	node->next = NULL;
+	return node;
+}
+
+void map_data(hash_ll_array_s *hashtable, string key, string value){
+	unsigned int index = hash_func(key);
+
+	// giving the index to a node 
+	hash_node_t *node = hashtable->array[index];
+
+	if (node == NULL) {
+		// if null just put key and value
+		hashtable->array[index] = key_value_set(key, value);
+		return;
+	}
+
+	hash_node_t *head;
+
+	/*While the node is not null, that is when the is a collision
+	initialize the chaining method of resolving collision
+	*/
+	while (node != NULL){
+		// check if key exist already
+		if (strcmp(node->key, key) == 0){
+			node->value = value;
+			return;
+		}
+		head = node;
+		node = head->next;
+	}
+	// if no key match 
+	head->next = key_value_set(key, value);
+}
 ```
