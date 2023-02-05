@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <string.h>
 
+/*String data type*/
+typedef const char *string;
+
 /**
  * struct hash_node_s - nodes for each key value pair within hash table
  * @key : The string key is unique in the HashTable
