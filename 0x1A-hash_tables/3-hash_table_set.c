@@ -12,8 +12,6 @@ hash_node_t *key_value_set(string key, string value)
 
 	if (node == NULL)
 		return (NULL);
-	node->key = malloc(strlen(key) + 1);
-	node->value = malloc(strlen(value) + 1);
 
 	node->key = strdup(key);
 	node->value = strdup(value);
