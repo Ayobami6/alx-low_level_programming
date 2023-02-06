@@ -4,9 +4,9 @@ Hash table is an hash map, that maps keys to values, just like a dictionary in o
 The hash function is a regular function that takes a string as an arg and return an integer after running an algorthim on the string.
 
 To implement a collision free hash table, we'll need three things:
-	>-  Normally distributed hash function
-	>- Arrays data structure and 
-	>- Linked List
+>-  Normally distributed hash function
+>- Arrays data structure and 
+>- Linked List
 
 But before we move on to the implementation let's understand collision;
 Collision is a situation that occurs when two or more peices of keys ran through the hash function yields the same hash code or index number, hence the index would have already be allocated to the first key:value.

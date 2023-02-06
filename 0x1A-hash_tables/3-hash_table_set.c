@@ -52,7 +52,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		tmp = node;
 		node = tmp->next;
 	}
-	tmp->next = key_value_set(key, value);
+	tmp = key_value_set(key, value);
+	if (ht->array[index] != NULL)
+		tmp->next = ht->array[index];
+	ht->array[index] = tmp;
 	return (1);
 
 }
